@@ -9,6 +9,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 
 public class HelloTriangleSurfaceView extends GLSurfaceView {
     private final int CONTEXT_CLIENT_VERSION = 3;
+    private HelloTriangleRenderer mTriangleRenderer;
 
     class myEGLConfigChooser implements GLSurfaceView.EGLConfigChooser {
         @Override
@@ -41,5 +42,7 @@ public class HelloTriangleSurfaceView extends GLSurfaceView {
 
         this.setEGLContextClientVersion(CONTEXT_CLIENT_VERSION);
         this.setEGLConfigChooser(new myEGLConfigChooser());
+        this.mTriangleRenderer = new HelloTriangleRenderer(context);
+        this.setRenderer(mTriangleRenderer);
     }
 }
